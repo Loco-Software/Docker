@@ -1,0 +1,33 @@
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab
+    hostname: gitlab
+    volumes:
+      - type: volume
+        source: gitlab-config
+        target: /etc/gitlab
+      - type: volume
+        source: gitlab-data
+        target: /var/opt/gitlab
+      - type: volume
+        source: gitlab-logs
+        target: /var/log/gitlab
+    ports:
+      - mode: host
+        target: 22
+        published: 30022
+      - mode: host
+        target: 80
+        published: 30080
+      - mode: host
+        target: 443
+        published: 30443
+    networks:
+      proxy:
+      gitlab-internal:
+    profiles:
+      - prod
+      - dev
+      - gitlab
+    restart: unless-stopped

@@ -1,0 +1,16 @@
+services:
+  gitlab:
+    image:
+    container_name:
+    hostname: 
+    restart: 
+    profiles:
+    volumes:
+      - type: 
+        source: 
+        target: 
+    ports:
+      - mode: 
+        target: 
+        published: 
+    networks:

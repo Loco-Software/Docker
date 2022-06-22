@@ -1,0 +1,4 @@
+services:
+  gitlab:
+    extends: ./services/gitlab.yaml
+    service: gitlab
